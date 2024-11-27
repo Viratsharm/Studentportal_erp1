@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .success-container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .checkmark-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        /* Glowing Circle Background */
+        .checkmark-circle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.4), transparent);
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        /* SVG checkmark animation */
+        .checkmark {
+            position: relative;
+            z-index: 1;
+            width: 80px;
+            height: 80px;
+        }
+
+        .checkmark-circle {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            stroke: #4CAF50;
+            fill: none;
+            stroke-width: 4;
+            animation: draw-circle 0.6s ease forwards;
+        }
+
+        .checkmark-check {
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            stroke: #4CAF50;
+            fill: none;
+            stroke-width: 4;
+            animation: draw-check 0.5s 0.6s ease forwards;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #2193b0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #6dd5ed;
+        }
+
+        .btn-secondary {
+            background-color: #4CAF50;
+        }
+
+        .btn-secondary:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes draw-circle {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes draw-check {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <!-- Glowing animated checkmark -->
+        <div class="checkmark-container">
+            <div class="checkmark-circle-bg"></div> <!-- Glowing background -->
+            <svg class="checkmark" viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" />
+                <path class="checkmark-check" d="M16 26l8 8 16-16" />
+            </svg>
+        </div>
+
+        <h1>Feedback Submitted Successfully!</h1>
+        <p>Thank you for your valuable feedback. It has been recorded.</p>
+        <div class="btn-container">
+            <a href="give_feedback.php" class="btn">Submit Another Feedback</a>
+            <a href="deshboard.php" class="btn btn-secondary">Go to Home</a>
+        </div>
+    </div>
+</body>
+</html>

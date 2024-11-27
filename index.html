@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://localhost/student_system/feedback.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal | Login</title>
+  <link href="./index_files/css2" rel="stylesheet">
+  <style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #111111 0%, #2e2e2e 100%); /* Dark background gradient */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Login Container Styling */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background: rgba(30, 30, 30, 0.8); /* Darker container with transparency */
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(255, 220, 0, 0.2); /* Goldish shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+/* Logo Styling */
+.logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #f4e542, #d1c900); /* Yellow gradient logo */
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Heading Styling */
+h2 {
+  color: #f4e542; /* Yellow text */
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* Input Group Styling */
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+input {
+  width: 100%;
+  padding: 15px 20px 15px 50px; 
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1); /* Dark input background */
+  border: none;
+  border-radius: 50px;
+  color: #f4e542; /* Yellow text in input */
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 220, 0, 0.1); /* Gold shadow on focus */
+}
+
+/* Icon Styling */
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg, #f4e542, #d1c900); /* Yellow gradient button */
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 220, 0, 0.1); /* Gold shadow for button */
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 220, 0, 0.2); /* Glowing gold shadow on hover */
+}
+
+/* Links Styling */
+.register-link, .admin-link {
+  margin-top: 20px;
+  display: inline-block;
+  color: #f4e542; /* Yellow link color */
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.register-link:hover, .admin-link:hover {
+  text-decoration: underline;
+}
+
+/* Admin Button Styling */
+.admin-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #333;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #555;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Floating Animation for Decorative Elements */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo floating">SP</div>
+    <h2>Welcome Back</h2>
+    <form action="http://localhost/student_system/login.php" method="POST">
+      <div class="input-group">
+        <span class="icon">👤</span>
+        <input type="text" name="r_id" required="" placeholder="Enter R ID">
+      </div>
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input type="password" name="password" required="" placeholder="Enter Password">
+      </div>
+      <button type="submit">Sign In</button>
+    </form>
+    <a href="http://localhost/student_system/register.html" class="register-link">New here? Create an account</a>
+    <!-- Admin portal button -->
+    <a href="http://localhost/student_system/admin_portal.php" class="admin-btn">Admin Portal</a>
+  </div>
+
+
+<div class="cgw-ext" data-ext-id="pdnenlnelpdomajfejgapbdpmjkfpjkp"></div><div class="cgw_main_container" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; line-height: 18px; user-select: text;"><template shadowrootmode="open"><style>.codeblocks{counter-reset:sh-line-number}:host{--sh-class: #e3eaf2;--sh-identifier: #c699e3;--sh-sign: #66cccc;--sh-property: #c699e3;--sh-entity: #66cccc;--sh-jsxliterals: #e3eaf2;--sh-string: #91d076;--sh-keyword: #e9ae7e;--sh-comment: #8da1b9}.sh__line:before{counter-increment:sh-line-number 1;content:counter(sh-line-number);margin-right:20px;margin-left:20px;color:#a4a4a4}.custom_scrollbar{scrollbar-color:#a3a3a3 transparent;scrollbar-width:thin}.katex-html{display:none}</style><div class="absolute hidden" style="top: 0px; left: 0px; display: none;"><div style="border-radius: 5px; background: white; box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px; z-index: 9999990; pointer-events: auto; position: relative;"><div class="text-sm text-neutral-700"><div style="display: inline-flex; align-items: stretch; height: 32px; overflow: hidden;"><div role="button" tabindex="0" class="inline-flex items-center gap-[5px]" style="user-select: none; transition: background 20ms ease-in; cursor: pointer; display: flex; align-items: center; border-radius: 0px; padding-left: 7px; padding-right: 8px; white-space: nowrap; box-shadow: rgba(55, 53, 47, 0.09) 1px 0px 0px; margin-right: 1px;"><div><svg id="Layer_1" version="1.1" viewBox="0 0 16 16" fill="currentColor" height="14px" width="14px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M7,5V3c0-0.515-0.435-1-1-1C5.484,2,5.258,2.344,5,2.586L0.578,7C0.227,7.359,0,7.547,0,8s0.227,0.641,0.578,1L5,13.414  C5.258,13.656,5.484,14,6,14c0.565,0,1-0.485,1-1v-2h2c1.9,0.075,4.368,0.524,5,2.227C14.203,13.773,14.625,14,15,14  c0.563,0,1-0.438,1-1C16,7.083,12.084,5,7,5z"></path></svg></div><div class="font-medium">ChatGPT Writer</div></div><div role="button" tabindex="0" class="inline-flex items-center" style="user-select: none; transition: background 20ms ease-in; cursor: pointer; display: flex; align-items: center; border-radius: 0px; padding-left: 7px; padding-right: 8px; white-space: nowrap; box-shadow: none; margin-right: 0px;"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3"><path fill-rule="evenodd" d="M7.84 1.804A1 1 0 018.82 1h2.36a1 1 0 01.98.804l.331 1.652a6.993 6.993 0 011.929 1.115l1.598-.54a1 1 0 011.186.447l1.18 2.044a1 1 0 01-.205 1.251l-1.267 1.113a7.047 7.047 0 010 2.228l1.267 1.113a1 1 0 01.206 1.25l-1.18 2.045a1 1 0 01-1.187.447l-1.598-.54a6.993 6.993 0 01-1.929 1.115l-.33 1.652a1 1 0 01-.98.804H8.82a1 1 0 01-.98-.804l-.331-1.652a6.993 6.993 0 01-1.929-1.115l-1.598.54a1 1 0 01-1.186-.447l-1.18-2.044a1 1 0 01.205-1.251l1.267-1.114a7.05 7.05 0 010-2.227L1.821 7.773a1 1 0 01-.206-1.25l1.18-2.045a1 1 0 011.187-.447l1.598.54A6.993 6.993 0 017.51 3.456l.33-1.652zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg></div></div></div></div></div></div></template></div><button id="cgw_action_btn" tabindex="-1" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></button></body></html>

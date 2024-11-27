@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Suspended Successfully</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e2f;
+            color: #f5d372;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #212136;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            transform: scale(0);
+            animation: fadeInScale 1s forwards;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInText 1.5s 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .highlight {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .reason {
+            background: #343a40;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #f5d372;
+            opacity: 0;
+            animation: fadeInText 2s 1s forwards;
+        }
+
+        .contact {
+            font-size: 16px;
+            color: #d9534f;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeInText 2.5s 1s forwards;
+        }
+
+        button {
+            background-color: #f5d372;
+            color: #212136;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeInText 3s 1s forwards;
+        }
+
+        button:hover {
+            background-color: #d9534f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Successfully Suspended</h1>
+        <p>Your account has been suspended until <strong class="highlight" id="end-date">[End Date]</strong>.</p>
+        
+        <div class="reason" id="reason">
+            <h2>Reason for Suspension:</h2>
+            <p id="suspension-reason">[Reason]</p>
+        </div>
+
+        <p class="contact">Please contact the admin for further assistance.</p>
+        <button onclick="window.location.href='contact_admin.php'">Contact Admin</button>
+    </div>
+
+    <script>
+        // This would be dynamic data, you can fetch it from PHP or an API if needed.
+        const suspensionEndDate = "2024-12-31"; // Example suspension date
+        const suspensionReason = "Violation of community guidelines."; // Example reason
+
+        // Set the suspension details dynamically in the page
+        document.getElementById("end-date").textContent = suspensionEndDate;
+        document.getElementById("suspension-reason").textContent = suspensionReason;
+    </script>
+</body>
+</html>

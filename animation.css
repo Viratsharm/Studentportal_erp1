@@ -1,0 +1,79 @@
+/* Keyframes for floating effect */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Keyframes for gradient background animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Keyframes for subtle pulsating glow */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 223, 142, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 223, 142, 0.8);
+    }
+}
+
+/* Animations applied to the form container */
+.animate {
+    animation: gradient 6s ease infinite, float 3s ease-in-out infinite, pulse 3s ease-in-out infinite;
+    background: linear-gradient(45deg, #1c1c2b, #243a54, #ffc107, #2c2c3e);
+    background-size: 200% 200%;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Glowing text effect */
+.animate h2 {
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500, 0 0 30px rgba(255, 223, 142, 0.8);
+    color: #ffffff;
+}
+
+/* Floating button animation */
+.animate button {
+    border: none;
+    color: #1c1c2b;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ffa500, #ffd700);
+    transition: transform 0.3s ease, background 0.3s ease;
+    padding: 15px;
+    font-size: 1em;
+}
+
+.animate button:hover {
+    animation: float 1s ease-in-out infinite alternate;
+    background: linear-gradient(45deg, #ffd700, #ffc107);
+    transform: scale(1.1);
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+    .animate {
+        padding: 30px;
+    }
+
+    .animate h2 {
+        font-size: 1.5em;
+    }
+}
