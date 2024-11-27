@@ -2,12 +2,15 @@
 // login.php
 session_start();
 
-$host = "sql206.infinityfree.com";          // Usually 'localhost'
-$username = "if0_37798701";   // Database username
-$password = "210611s014333";   // Database password
-$database = "if0_37798701_Student_system";   // Database name
-$conn = new mysqli($servername, $username, $password, $dbname);
+$host = "sql206.infinityfree.com";          // Database host
+$username = "if0_37798701";                 // Database username
+$password = "210611s014333";                // Database password
+$database = "if0_37798701_Student_system";  // Database name
 
+// Create connection
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -19,9 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $r_id = $_POST['r_id'];
     $password = $_POST['password'];
 
-    // Query to fetch student details, including suspension information
-    $sql = "SELECT * FROM students WHERE r_id = '$r_id'";
-    $result = $conn->query($sql);
+    // Use a prepared statement to prevent SQL injection
+    $stmt = $conn->prepare("SELECT * FROM students WHERE r_id = ?");
+    $stmt->bind_param("s", $r_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -36,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate password
         if (password_verify($password, $row['password'])) {
-            $_SESSION['student_name'] = $row['name']; // Store the student's name
-            $_SESSION['is_logged_in'] = true; // Store the login status
+            $_SESSION['student_name'] = $row['name'];  // Store the student's name
+            $_SESSION['is_logged_in'] = true;         // Store the login status
             
             // Generate a unique key for the user
             $user_key = bin2hex(random_bytes(16));
@@ -52,6 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: error.html"); // Redirect if no user found
         exit();
     }
+
+    $stmt->close();
 }
 
 $conn->close();
