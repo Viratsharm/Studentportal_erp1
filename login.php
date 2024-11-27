@@ -2,15 +2,14 @@
 // login.php
 session_start();
 
-$host = "sql206.infinityfree.com";          // Database host
-$username = "if0_37798701";                 // Database username
-$password = "210611s014333";                // Database password
-$database = "if0_37798701_Student_system";  // Database name
+$host = "sql206.infinityfree.com"; // Database host
+$username = "if0_37798701";        // Database username
+$password = "210611s014333";       // Database password
+$database = "if0_37798701_Student_system"; // Database name
 
-// Create connection
+// Establishing database connection
 $conn = new mysqli($host, $username, $password, $database);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -22,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $r_id = $_POST['r_id'];
     $password = $_POST['password'];
 
-    // Use a prepared statement to prevent SQL injection
+    // Use prepared statement to prevent SQL injection
     $stmt = $conn->prepare("SELECT * FROM students WHERE r_id = ?");
-    $stmt->bind_param("s", $r_id);
+    $stmt->bind_param("s", $r_id); // 's' denotes a string parameter
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -41,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate password
         if (password_verify($password, $row['password'])) {
-            $_SESSION['student_name'] = $row['name'];  // Store the student's name
-            $_SESSION['is_logged_in'] = true;         // Store the login status
+            $_SESSION['student_name'] = $row['name']; // Store the student's name
+            $_SESSION['is_logged_in'] = true; // Store the login status
             
             // Generate a unique key for the user
             $user_key = bin2hex(random_bytes(16));
@@ -50,21 +49,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $login_success = true;
         } else {
-            header("Location: error.html"); // Redirect on invalid password
+            // Redirect on invalid password
+            header("Location: error.html");
             exit();
         }
     } else {
-        header("Location: error.html"); // Redirect if no user found
+        // Redirect if no user found
+        header("Location: error.html");
         exit();
     }
 
-    $stmt->close();
+    $stmt->close(); // Close prepared statement
 }
 
-$conn->close();
+$conn->close(); // Close database connection
 
 if ($login_success) {
-    // Instead of redirecting immediately, we'll render some JavaScript
+    // Instead of redirecting immediately, render JavaScript to handle redirection and local storage
     ?>
     <!DOCTYPE html>
     <html>
@@ -73,10 +74,10 @@ if ($login_success) {
     </head>
     <body>
         <script>
-            // Set the key in local storage
+            // Set the user key in local storage
             localStorage.setItem('user_key', '<?php echo $user_key; ?>');
-            // Redirect to dashboard
-            window.location.href = 'deshboard.php';
+            // Redirect to the dashboard page
+            window.location.href = 'dashboard.php'; // Corrected the typo in "deshboard.php"
         </script>
     </body>
     </html>
